@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>ConsideraDev.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Castle Windsor packages -->
+        <PackageReference Include="AWSSDK.CloudFront" Version="3.7.303.12" />
+        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.5" />
+        <PackageReference Include="AWSSDK.S3" Version="3.7.103.40" />
+        <PackageReference Include="AWSSDK.SecurityToken" Version="3.7.300.106" />
+        <PackageReference Include="AWSSDK.SSO" Version="3.7.300.105" />
+        <PackageReference Include="AWSSDK.SSOOIDC" Version="3.7.302.16" />
+        <PackageReference Include="Castle.Core" Version="5.1.1" />
+        <PackageReference Include="Castle.Windsor" Version="6.0.0" />
+        <!-- This is the correct integration package for ASP.NET Core -->
+        <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="4.1.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+
+        <!-- ASP.NET Core packages -->
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" /> <!-- Swagger for ASP.NET Core -->
+
+        <!-- Configuration and JSON handling (common for ASP.NET Core) -->
+
+        <!-- Data Access -->
+        <!-- You might want Entity Framework Core here if you're using it --> <!-- Example version, ensure it's compatible with your .NET version -->
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\Considera.Api.Core\Considera.Api.Core.csproj" />
+      <ProjectReference Include="..\Considera.Api.Infrastructure\Considera.Api.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
