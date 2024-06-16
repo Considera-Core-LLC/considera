@@ -1,0 +1,75 @@
+<muh-expansion-panel title="Add Genre"> <!-- Maybe add: Add a new genre, or add a new subgenre to an existing genre -->
+  <ng-container groups>
+    <muh-input-section class="group" title="Adding Genres">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+
+            <muh-auto-text-input
+              class="input-x1"
+              [label]="'Genre'"
+              [icon]="'music_note'"
+              [required]="true"
+              [multi]="true"
+              [allowNew]="true"
+              [options]="getGenreOptions()"
+              (inputValues)="setGenresToAdd($event)"
+              #genresToAddInput/>
+            <!-- ask chat gpt how to turn properties [multi]="true" into multi, like mat-stroked-button  -->
+            <!--
+            <app-muh-auto-text-input
+              class="input"
+              [label]="'Subgenre'"
+              [icon]="'music_note'"
+              [required]="false"
+              [multi]="false"
+              [options]="options"
+              (inputValue)="setGenreInput($event)"/>
+              -->
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+    <muh-input-section class="group" title="Assigning Subgenres">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-auto-text-input
+              class="input-x3"
+              [label]="'Choose a Genre'"
+              [icon]="'music_note'"
+              [required]="true"
+              [multi]="false"
+              [allowNew]="false"
+              [options]="getGenreOptions()"
+              (inputValues)="setGenresToAssign($event)"
+              #genresToAssignInput/>
+            <muh-auto-text-input
+              class="input-x3"
+              [label]="'Choose Subgenre(s)'"
+              [icon]="'music_note'"
+              [required]="true"
+              [multi]="true"
+              [allowNew]="false"
+              [options]="getGenreOptions()"
+              (inputValues)="setSubgenresToAssign($event)"
+              #subgenresToAssignInput/>
+            <!-- ask chat gpt how to turn properties [multi]="true" into multi, like mat-stroked-button  -->
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+  </ng-container>
+
+  <ng-container actions>
+    <button mat-stroked-button color="accent" (click)="clear()">Clear</button>
+    <button mat-stroked-button color="accent" (click)="assignSubgenres()">Assign</button>
+    <button mat-raised-button color="accent" (click)="addGenres()">Add</button>
+  </ng-container>
+</muh-expansion-panel>

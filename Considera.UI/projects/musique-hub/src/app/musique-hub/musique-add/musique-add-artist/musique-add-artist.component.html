@@ -1,0 +1,100 @@
+<muh-expansion-panel class="body-expansion-panel" title="Add Artist">
+  <ng-container groups>
+
+    <muh-input-section class="group" title="Artist Information">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Artist Name'"
+              [icon]="'person'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Origin'"
+              [icon]="'map'"
+              [required]="true"
+              (inputValue)="setOriginInput($event)"/>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Formed'"
+              [required]="true"
+              (inputValue)="setFormDateInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-multi-text-input
+              class="input-x1"
+              [label]="'Enter Artist Biography/Description'"
+              [icon]="'group'"
+              [required]="false"
+              (inputValue)="setBioInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-auto-text-input
+              class="input-x3"
+              [label]="'Genres'"
+              [icon]="'music_note'"
+              [required]="false"
+              [multi]="true"
+              [allowNew]="false"
+              [options]="getGenreOptions()"
+              (inputValues)="setGenresInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <mat-button-toggle-group name="fontStyle">
+              <mat-button-toggle value="solo">Solo Artist</mat-button-toggle>
+              <mat-button-toggle value="band">Band</mat-button-toggle>
+            </mat-button-toggle-group>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+    <muh-input-section class="group" title="Members Information">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Member Name'"
+              [icon]="'person'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Date of Birth'"
+              [required]="false"
+              (inputValue)="setFormDateInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <button mat-stroked-button color="accent" (click)="addArtist()">Add Member</button>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+  </ng-container>
+
+  <ng-container actions>
+    <button mat-stroked-button color="accent">Clear</button>
+    <button mat-raised-button color="accent" (click)="addArtist()">Add</button>
+  </ng-container>
+</muh-expansion-panel>

@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <img slot="start" src='assets/images/considera-icon-dark.png' alt=""/>
+  <span>considera.dev</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" style="margin-right: -10px;">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="page">
+  <app-header></app-header>
+  <!--
+  <app-projects></app-projects>
+  <app-roadmap></app-roadmap>
+  -->
+  <table mat-table [dataSource]="idleResearchModels" class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- EnergyLog Column -->
+    <ng-container matColumnDef="energyLog">
+      <th mat-header-cell *matHeaderCellDef> Energy Log </th>
+      <td mat-cell *matCellDef="let element"> {{element.energyLog}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <app-footer></app-footer>
+  <div class="bottom">
+
+  </div>
+</div>
+
+<router-outlet />

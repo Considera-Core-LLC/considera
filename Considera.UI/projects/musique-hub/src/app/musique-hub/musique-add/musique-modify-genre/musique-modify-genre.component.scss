@@ -1,0 +1,20 @@
+@import '../../../../variables';
+
+.group {
+
+  .input-x3 {
+    flex-grow: 1;
+    max-width: calc(33% - ($fib-21 / 2));
+  }
+
+  .input-x2 {
+    flex-grow: 1;
+    max-width: calc(50% - ($fib-21 / 2));
+  }
+
+  .input-x1 {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+}

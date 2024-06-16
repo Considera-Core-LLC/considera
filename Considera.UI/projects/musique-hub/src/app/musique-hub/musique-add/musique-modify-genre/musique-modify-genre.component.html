@@ -1,0 +1,65 @@
+<muh-expansion-panel title="Modify Genre"> <!-- Maybe add: Add a new genre, or
+ add
+ a new subgenre to an existing genre -->
+  <ng-container groups>
+    <muh-input-section class="group" title="Select Genre to Modify:">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+
+            <muh-auto-text-input
+              class="input-x3"
+              [label]="'Select'"
+              [icon]="'music_note'"
+              [required]="true"
+              [multi]="false"
+              [allowNew]="true"
+              [options]="getGenreOptions()"
+              (inputValue)="setGenreQuery($event)"
+              (onInputChange)="onGenreSelect()"
+              #genresToAddInput/>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+    <muh-input-section class="group" title="Modify Genre">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Name'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setGenreName($event)"
+              #nameInput/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-multi-text-input
+              class="input-x1"
+              [label]="'Description'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setGenreDesc($event)"
+              #descriptionInput/>
+            <!-- ask chat gpt how to turn properties [multi]="true" into multi, like mat-stroked-button  -->
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+  </ng-container>
+
+  <ng-container actions>
+    <button mat-stroked-button color="accent" (pointerdown)="clear()">Clear</button>
+    <button mat-raised-button color="accent" (pointerdown)="save()">Save</button>
+  </ng-container>
+</muh-expansion-panel>

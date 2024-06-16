@@ -1,0 +1,122 @@
+@import '../../../variables';
+
+.roadmap {
+  height: auto;
+  background-color: $space-grey;
+
+  .projects-grid {
+    padding-bottom: $fib-13;
+
+    .grid-header {
+      font-family: expressa, serif;
+      color: $very-light-grey;
+      padding-bottom: $fib-13;
+      padding-top: $fib-13;
+    }
+  }
+}
+
+@include for-4k-screen {
+  .roadmap {
+    padding: $fib-34 $fib-55;
+
+    .projects-grid .grid-list {
+      $grid-gap: $fib-21;
+      $grid-col-count: 7;
+      $column-width: calc(100% * (1 / $grid-col-count) - $grid-gap * (($grid-col-count - 1) / $grid-col-count));
+
+      display: grid;
+      justify-content: space-evenly;
+      column-gap: $grid-gap;
+      row-gap: $grid-gap;
+      grid-template-columns:
+        $column-width
+        $column-width
+        $column-width
+        $column-width
+        $column-width
+        $column-width
+        $column-width;
+    }
+  }
+}
+@include for-desktop-screen {
+  .roadmap {
+    padding: $fib-34;
+
+    .projects-grid .grid-list {
+      $grid-gap: $fib-21;
+      $grid-col-count: 5;
+      $column-width: calc(100% * (1 / $grid-col-count) - $grid-gap * (($grid-col-count - 1) / $grid-col-count));
+
+      display: grid;
+      justify-content: space-evenly;
+      column-gap: $grid-gap;
+      row-gap: $grid-gap;
+      grid-template-columns:
+        $column-width
+        $column-width
+        $column-width
+        $column-width
+        $column-width;
+    }
+  }
+}
+@include for-laptop-screen {
+  .roadmap {
+    padding: $fib-34;
+
+    .projects-grid .grid-list {
+      $grid-gap: $fib-21;
+      $grid-col-count: 3;
+      $column-width: calc(100% * (1 / $grid-col-count) - $grid-gap * (($grid-col-count - 1) / $grid-col-count));
+
+      display: grid;
+      justify-content: space-evenly;
+      column-gap: $grid-gap;
+      row-gap: $grid-gap;
+      grid-template-columns:
+        $column-width
+        $column-width
+        $column-width;
+    }
+  }
+}
+@include for-tablet-screen {
+  .roadmap {
+    padding: $fib-21;
+
+    .projects-grid .grid-list {
+      $grid-gap: $fib-13;
+      $grid-col-count: 3;
+      $column-width: calc(100% * (1 / $grid-col-count) - $grid-gap * (($grid-col-count - 1) / $grid-col-count));
+
+      display: grid;
+      justify-content: space-evenly;
+      column-gap: $grid-gap;
+      row-gap: $grid-gap;
+      grid-template-columns:
+        $column-width
+        $column-width
+        $column-width;
+    }
+  }
+}
+@include for-phone-screen {
+  .roadmap {
+    padding: $fib-34;
+
+    .projects-grid .grid-list {
+      $grid-gap: $fib-13;
+      $grid-col-count: 1;
+      $column-width: calc(100% * (1 / $grid-col-count) - $grid-gap * (($grid-col-count - 1) / $grid-col-count));
+
+      display: grid;
+      justify-content: space-evenly;
+      column-gap: $grid-gap;
+      row-gap: $grid-gap;
+      grid-template-columns:
+        $column-width;
+    }
+  }
+}

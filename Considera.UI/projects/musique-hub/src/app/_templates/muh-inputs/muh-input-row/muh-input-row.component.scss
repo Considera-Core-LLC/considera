@@ -1,0 +1,10 @@
+@import 'projects/musique-hub/src/_variables.scss';
+
+.group-inputs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: $fib-21;
+  margin-top: $fib-13;
+  margin-bottom: -$fib-21;
+}

@@ -1,0 +1,77 @@
+@import '../../../../variables';
+
+mat-card {
+  background-color: $space-grey;
+  border-radius: $card-border-radius;
+
+  mat-card-header {
+    padding: 8px 16px 0 16px;
+  }
+
+  mat-card-header mat-card-title span {
+    font-family: coolveticaRg, serif;
+    color: white;
+  }
+
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px 8px 16px;
+
+    .subtitle {
+      $icon-size: 15px;
+      font-family: louisGeorgeCafeBold, serif;
+      color: $very-light-grey;
+      display: flex;
+      align-items: center;
+
+      .downloads {
+        display: flex;
+        align-items: center;
+        background-color: rgba(122, 48, 205, 0.8);
+        border-radius: 4px;
+        padding: 0 0 0 6px;
+
+        .download::before {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: $icon-size;
+        }
+        .download {
+          height: $icon-size;
+          margin-left: -4px;
+          margin-top: 3px;
+        }
+      }
+
+      .rating {
+        display: inline-block;
+        background-color: $gold-transparent;
+        border-radius: 4px;
+        margin-left: 4px;
+        padding: 0 4px 0 6px;
+      }
+    }
+
+    .description {
+      height: 40px;
+      font-family: louisGeorgeCafeLight, serif;
+      color: $very-light-grey;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-bottom: 8px;
+    }
+  }
+
+  mat-card-actions {
+    padding: 0 16px 8px 16px;
+    margin-left: auto;
+    button {
+      font-family: "louisGeorgeCafeLight", serif;
+    }
+  }
+}

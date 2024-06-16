@@ -1,0 +1,60 @@
+@import 'variables';
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Main Logo
+@font-face {
+  font-family: "recharge";
+  src: url('assets/fonts/recharge.ttf');
+}
+
+// Domain Logo & Header
+@font-face {
+  font-family: "expressa";
+  src: url('assets/fonts/expressa-heavy.ttf');
+}
+
+// Title
+@font-face {
+  font-family: "coolveticaRg";
+  src: url('assets/fonts/coolvetica/coolvetica_rg.ttf');
+}
+
+// Main
+@font-face {
+  font-family: "louisGeorgeCafeBold";
+  src: url('assets/fonts/LouisGeorgeCafe/Louis George Cafe Bold.ttf');
+}
+
+// Button
+@font-face {
+  font-family: "louisGeorgeCafeLight";
+  src: url('assets/fonts/LouisGeorgeCafe/Louis George Cafe Light.ttf');
+}
+
+// Code
+@font-face {
+  font-family: "space";
+  src: url('assets/fonts/space-mono.ttf');
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  //width: 100vw;
+}
+
+:root {
+  --background-gif: url(assets/images/considera-coding-background.gif);
+
+  .font-89 { font-size: $fib-89; }
+  .font-55 { font-size: $fib-55; }
+  .font-34 { font-size: $fib-34; }
+  .font-21 { font-size: $fib-21; }
+  .font-13 { font-size: $fib-13; }
+}

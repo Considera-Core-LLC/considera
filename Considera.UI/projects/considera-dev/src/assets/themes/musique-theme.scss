@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@import 'palettes/musique-palette';
+@include mat.core();
+
+$musique-primary: mat.define-palette($musique-purple-palette);
+$musique-accent: mat.define-palette($musique-purple-palette, A200, A100, A400);
+$musique-warn: mat.define-palette($musique-danger-palette);
+
+$musique-theme: mat.define-light-theme((
+  color: (
+    primary: $musique-primary,
+    accent: $musique-accent,
+    warn: $musique-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($musique-theme);

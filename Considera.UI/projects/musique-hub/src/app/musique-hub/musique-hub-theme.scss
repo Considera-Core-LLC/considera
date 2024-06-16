@@ -1,0 +1,65 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '../../variables';
+
+/*
+@mixin toolbar-theme($theme) {
+  $primary: mat.get-theme-color($theme, primary, 500);
+
+  mat-toolbar {
+    background-color: mat.color($primary);
+    color: mat.contrast($primary);
+  }
+}
+
+
+*/
+
+
+
+
+
+
+
+@mixin color($theme) {
+
+  mat-toolbar {
+
+    //background-color:  $space-grey;
+    //background-color: mat.get-theme-color($theme, accent, 500);
+
+    .hub {
+      color: $musique-purple;
+    }
+
+    button, span {
+      color: white;
+    }
+
+  }
+}
+
+@mixin typography($theme) {
+  mat-toolbar {
+
+    button, span {
+      font-family: expressa, serif;
+    }
+
+    span {
+      font-size: $fib-34;
+    }
+
+  }
+
+}
+
+@mixin theme($theme) {
+  @if mat.theme-has($theme, color) {
+    @include color($theme);
+  }
+
+  @if mat.theme-has($theme, typography) {
+    @include typography($theme);
+  }
+}

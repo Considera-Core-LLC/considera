@@ -1,0 +1,129 @@
+@use 'projects/musique-hub/src/musique-theme.scss';
+@use '@angular/material' as mat;
+@import '../../variables';
+
+
+mat-toolbar {
+  z-index: 2;
+  box-shadow: 0 -5px 10px 10px rgba(0, 0, 0, 0.2);
+  background-color:  $space-grey;
+  position: fixed;
+  height: 64px;
+  button, span {
+    font-family: expressa, serif;
+    color: white;
+  }
+  span {
+    font-size: $fib-34;
+  }
+
+  .musique { margin-left: 2px; }
+  .hub { color: $musique-purple; }
+
+  .example-spacer {
+    flex: 1 0 auto;
+  }
+
+
+  img {
+    width: 45px;
+    margin-right: $fib-8;
+    margin-left: -$fib-5;
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  margin-top: $desktop-footer-height;
+  height: calc(100vh - $desktop-footer-height);
+
+  .drawer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: $fib-233;
+    background-color: white;
+
+    .drawer-list-start {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: $fib-8;
+
+      .drawer-list-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: calc($fib-21);
+
+        margin-bottom: $fib-8;
+        padding: 10px;
+        border-radius: 5px;
+
+        mat-icon {
+          margin-right: $fib-8;
+        }
+
+        span {
+          border: 10px;
+          color: $space-grey;
+          font-family: "coolveticaRg", serif;
+        }
+        transition: 0.1s;
+      }
+    }
+
+    .drawer-list-end {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: $fib-8;
+
+      .drawer-list-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        //height: calc($fib-21);
+
+        margin-top: auto;
+        padding: 10px;
+        border-radius: 5px;
+
+        mat-icon {
+          margin-right: $fib-8;
+        }
+
+        span {
+          border: 10px;
+          font-family: "coolveticaRg", serif;
+        }
+        transition: 0.1s;
+      }
+
+      .add {
+        margin-top: auto;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  mat-divider {
+    background-color: $light-divider;
+  }
+
+  app-musique-add {
+    flex-grow: 1;
+    height: auto;
+  }
+
+  app-musique-list{
+    flex-grow: 1;
+    height: auto;
+  }
+
+  .bottom {
+    height: $fib-5;
+    background-color: rgb(122,48,205);
+  }
+}

@@ -1,0 +1,50 @@
+@import '../../../variables';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $musique-light-grey;
+  overflow-y: auto;
+
+  .content-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    padding: calc($fib-13);
+
+    span {
+      font-size: $fib-21;
+      font-family: "coolveticaRg", serif;
+    }
+  }
+
+  .content-body {
+    display: flex;
+    flex-direction: column;
+    padding: calc($fib-21);
+    row-gap: $fib-21;
+    overflow-y: auto; /* This allows the content-body to scroll */
+    flex-grow: 1; /* This makes content-body take up all available space */
+
+    .body-expansion-panel {
+      max-width: $fib-987;
+    }
+
+    .login-panel {
+      max-width: $fib-987;
+      padding: $fib-21;
+      .header-title {
+        font-size: $fib-21;
+        font-family: "coolveticaRg", serif;
+      }
+    }
+
+  }
+
+}
+
+mat-divider {
+  background-color: $light-divider;
+}

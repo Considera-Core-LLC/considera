@@ -1,0 +1,5 @@
+<mat-form-field class="mat-input-field" appearance="outline" color="accent">
+  <mat-label>{{ label }}</mat-label>
+  <input (input)="onInputChange()" [(ngModel)]="input" matInput required='required'>
+  <mat-icon matSuffix>{{ icon }}</mat-icon>
+</mat-form-field>

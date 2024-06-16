@@ -1,0 +1,32 @@
+@import '../../../variables';
+
+.dialog-title {
+  padding: 8px 16px;
+
+  span {
+    font-size: $fib-21;
+    font-family: "coolveticaRg", serif;
+  }
+
+}
+
+.dialog-content{
+  padding: $fib-21;// todo check the artist padding to make sure they match. i should make a theme for the padding sooner rather than later
+}
+
+
+.dialog-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+
+
+  button {
+    flex-grow: 0.1;
+    width: 0;
+  }
+
+  .button-progress {
+    color: black;
+  }
+}

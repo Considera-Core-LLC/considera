@@ -1,0 +1,255 @@
+<muh-expansion-panel class="body-expansion-panel" title="Catalog Media">
+  <ng-container groups>
+
+    <muh-input-section class="group" title="Basic Information">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Artist Name'"
+              [icon]="'person'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Album Name'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setOriginInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Artist/Album Origin'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setOriginInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Release Date'"
+              [required]="true"
+              (inputValue)="setFormDateInput($event)"/>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Recorded Date'"
+              [required]="true"
+              (inputValue)="setFormDateInput($event)"/>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Pressing Date'"
+              [required]="true"
+              (inputValue)="setFormDateInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-multi-text-input
+              class="input-x1"
+              [label]="'Enter Artist Biography/Description'"
+              [icon]="'group'"
+              [required]="false"
+              (inputValue)="setBioInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <mat-button-toggle-group name="fontStyle">
+              <mat-button-toggle value="solo">Vinyl</mat-button-toggle>
+              <mat-button-toggle value="band">CD</mat-button-toggle>
+              <mat-button-toggle value="band">Cassette</mat-button-toggle>
+            </mat-button-toggle-group>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+    <muh-input-section class="group" title="Label Information">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Record Label Name'"
+              [icon]="'person'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+
+        <muh-input-row>
+          <ng-container inputs>
+            <mat-button-toggle-group name="fontStyle">
+              <mat-button-toggle value="solo">Vinyl</mat-button-toggle>
+              <mat-button-toggle value="band">CD</mat-button-toggle>
+              <mat-button-toggle value="band">Cassette</mat-button-toggle>
+            </mat-button-toggle-group>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+
+    <muh-input-section class="group" title="Media Information">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Catalog Number'"
+              [icon]="'id'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Media Condition'"
+              [icon]="'id'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Cover Condition'"
+              [icon]="'id'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Remastered'"
+              [icon]="'id'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Repressed'"
+              [icon]="'id'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+            <!-- maybe have a special auto multi text option for attributes such as repressed, remastered, live, expanded, demo, etc. -->
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Expanded'"
+              [icon]="'id'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+
+        <muh-input-row>
+          <ng-container inputs>
+            <mat-button-toggle-group name="fontStyle">
+              <mat-button-toggle value="solo">Vinyl</mat-button-toggle>
+              <mat-button-toggle value="band">CD</mat-button-toggle>
+              <mat-button-toggle value="band">Cassette</mat-button-toggle>
+            </mat-button-toggle-group>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+
+    <muh-input-section class="group" title="Personal Catalog Information">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Listened'"
+              [icon]="'person'"
+              [required]="true"
+              (inputValue)="setArtistInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Purchase Date'"
+              [required]="true"
+              (inputValue)="setFormDateInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Purchase Price'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setOriginInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Purchase Location'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setOriginInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Purchased Media Condition'"
+              [required]="true"
+              (inputValue)="setFormDateInput($event)"/>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Purchase Cover Condition'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setOriginInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-multi-text-input
+              class="input-x1"
+              [label]="'Notes'"
+              [icon]="'group'"
+              [required]="false"
+              (inputValue)="setBioInput($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <mat-button-toggle-group name="fontStyle">
+              <mat-button-toggle value="solo">Vinyl</mat-button-toggle>
+              <mat-button-toggle value="band">CD</mat-button-toggle>
+              <mat-button-toggle value="band">Cassette</mat-button-toggle>
+            </mat-button-toggle-group>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+  </ng-container>
+
+  <ng-container actions>
+    <button mat-stroked-button color="accent">Clear</button>
+    <button mat-raised-button color="accent" (click)="addArtist()">Add</button>
+  </ng-container>
+</muh-expansion-panel>

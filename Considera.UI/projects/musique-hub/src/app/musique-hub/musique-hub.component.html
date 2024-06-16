@@ -1,0 +1,70 @@
+<mat-toolbar>
+  <img slot="start" src='assets/images/musique/logo.png' alt=""/>
+  <span class="musique">Musique</span>
+  <span class="hub">Hub</span>
+  <span class="example-spacer"></span>
+
+  <button mat-button *ngIf="!MuhLoginDialogComponent.loggedIn()" color="red" (click)="openLogin()">Login</button>
+
+  <span *ngIf="MuhLoginDialogComponent.loggedIn()">{{ MuhLoginDialogComponent.getUsername()}}{{MuhLoginDialogComponent.currentUser?.isAdmin ? " - Admin" : ""}}</span>
+
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" style="margin-right: -10px;">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="page">
+
+  <div class="drawer">
+    <div class="drawer-list-start">
+      <div class="drawer-list-item" (click)="setCurrentPage(PageEnum.HOME)">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </div>
+      <div class="drawer-list-item">
+        <mat-icon>search</mat-icon>
+        <span>Search</span>
+      </div>
+      <div class="drawer-list-item"  (click)="setCurrentPage(PageEnum.LIST)">
+        <mat-icon>list</mat-icon>
+        <span>List</span>
+      </div>
+    </div>
+
+    <div class="drawer-list-end">
+      <button mat-flat-button class="drawer-list-item add" color="accent"
+              (click)="setCurrentPage(PageEnum.ADD)">
+        <mat-icon>add</mat-icon>
+        <span>Add</span>
+      </button>
+    </div>
+  </div>
+
+  <mat-divider [vertical]="true"></mat-divider>
+  <app-musique-home [hidden]="!isCurrentPage(PageEnum.HOME)"></app-musique-home>
+  <app-musique-add [hidden]="!isCurrentPage(PageEnum.ADD)"></app-musique-add>
+  <app-musique-list [hidden]="!isCurrentPage(PageEnum.LIST)"></app-musique-list>
+
+</div>
+
+
+
+
+<!--
+<p>current user: {{currentUser === undefined ? "logged out" : currentUser?.username}}</p>
+
+<input [(ngModel)]="usernameInput" placeholder="username">
+<input [(ngModel)]="passwordInput" placeholder="password" type="password">
+
+<button (click)="login()">
+  Login
+</button>
+
+<p>{{lastLoginStatus}}</p>
+
+
+
+<app-musique-add>
+
+</app-musique-add>
+-->

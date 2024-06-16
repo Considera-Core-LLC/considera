@@ -1,0 +1,43 @@
+<form *ngIf="!multi">
+  <mat-form-field class="mat-input-field" appearance="outline" color="accent">
+    <mat-label>{{ label }}</mat-label>
+    <input [formControl]="formControl"
+           [matAutocomplete]="auto"
+           matInput
+           type="text"
+           required="false">
+    <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="singleSelected($event)">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<form *ngIf="multi">
+  <mat-form-field class="mat-input-field" appearance="outline" color="accent">
+    <mat-label>{{ label }}</mat-label>
+    <mat-chip-grid #chipGrid>
+
+      <mat-chip-row *ngFor="let option of selectedOptions" [removable]="true" (removed)="remove(option)">
+        {{ option }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+    <input matInput
+           [formControl]="formControl"
+           [matAutocomplete]="auto"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputFor]="chipGrid"
+           (matChipInputTokenEnd)="add($event)"
+           #optionInput>
+    <mat-icon matSuffix>{{ icon }}</mat-icon>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="add($event)" (opened)="load()">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

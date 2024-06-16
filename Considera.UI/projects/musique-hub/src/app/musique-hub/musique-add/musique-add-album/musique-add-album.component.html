@@ -1,0 +1,83 @@
+<muh-expansion-panel class="body-expansion-panel" title="Add Album">
+  <ng-container groups>
+
+    <muh-input-section class="group" title="Album Information">
+      <ng-container group-rows>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-single-text-input
+              class="input-x3"
+              [label]="'Album Name'"
+              [icon]="'music_note'"
+              [required]="true"
+              (inputValue)="setName($event)"/>
+            <muh-auto-text-input
+              class="input-x3"
+              [label]="'Artist(s)'"
+              [icon]="'people'"
+              [required]="false"
+              [multi]="true"
+              [allowNew]="false"
+              [options]="getArtistOptions()"
+              (inputValues)="setArtists($event)"/>
+            <muh-date-input
+              class="input-x3"
+              [label]="'Release Date'"
+              [required]="true"
+              (inputValue)="setReleaseDate($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-multi-text-input
+              class="input-x1"
+              [label]="'Enter Album Description'"
+              [icon]="'group'"
+              [required]="false"
+              (inputValue)="setDescription($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <muh-auto-text-input
+              class="input-x1"
+              [label]="'Album Genres'"
+              [icon]="'music_note'"
+              [required]="false"
+              [multi]="true"
+              [allowNew]="false"
+              [options]="getGenreOptions()"
+              (inputValues)="setGenres($event)"/>
+          </ng-container>
+        </muh-input-row>
+
+        <muh-input-row>
+          <ng-container inputs>
+            <mat-button-toggle-group name="fontStyle">
+              <mat-button-toggle value="solo">LP</mat-button-toggle>
+              <mat-button-toggle value="band">EP</mat-button-toggle>
+              <mat-button-toggle value="band">Single</mat-button-toggle>
+              <mat-button-toggle value="band">Compilation</mat-button-toggle>
+            </mat-button-toggle-group>
+          </ng-container>
+        </muh-input-row>
+
+      </ng-container>
+    </muh-input-section>
+
+    <muh-input-section class="group" title="Songs Information">
+      <ng-container group-rows>
+
+      </ng-container>
+    </muh-input-section>
+
+  </ng-container>
+
+  <ng-container actions>
+    <button mat-stroked-button color="accent" (pointerdown)="clear()">Clear</button>
+    <button mat-raised-button color="accent" (pointerdown)="add()">Add</button>
+  </ng-container>
+</muh-expansion-panel>

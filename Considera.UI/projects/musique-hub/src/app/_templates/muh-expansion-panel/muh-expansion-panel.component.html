@@ -1,0 +1,24 @@
+<mat-expansion-panel class="body-expansion-panel" [expanded]="expanded">
+
+  <mat-expansion-panel-header class="panel-header">
+    <mat-panel-title class="header-title">
+      <span>{{ title }}</span>
+    </mat-panel-title>
+    <mat-panel-description class="header-description">
+      <span>{{ description }}</span>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <mat-divider></mat-divider>
+
+  <div class="panel-groups">
+    <ng-content select="[groups]"></ng-content>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="panel-actions">
+    <ng-content select="[actions]"></ng-content>
+  </div>
+
+</mat-expansion-panel>

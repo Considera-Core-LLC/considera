@@ -1,0 +1,50 @@
+<div class="content">
+
+  <div class="content-header">
+    <span>List</span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="content-body">
+
+    <mat-accordion class="example-headers-align" multi>
+      <muh-expansion-panel
+        class="body-expansion-panel"
+        [title]="genre.genre.name"
+        [description]="genre.genre.description"
+        [expanded]="false"
+        *ngFor="let genre of genresDataSource.data">
+        <ng-container groups>
+          <caption>Description: {{ genre.genre.description }}</caption>
+          <caption>Albums</caption>
+          <div style="display: flex; flex-direction: row; column-gap: 10px">
+
+            <mat-card style="width: 300px" *ngFor="let album of genre.albums">
+              <mat-card-header>
+                <mat-card-title>{{album.name}}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p class="test-wrap" >About: {{ album.description }}</p>
+                <p class="test-wrap" >Released: {{ album.releaseDate }}</p>
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+          <mat-accordion class="example-headers-align" multi>
+            <muh-expansion-panel
+              class="body-expansion-panel group"
+              [title]="subGenre.genre.name"
+              [description]="subGenre.genre.description"
+              *ngFor="let subGenre of genre.childGenres">
+              <ng-container groups>
+                Top 10 Albums
+              </ng-container>
+            </muh-expansion-panel>
+          </mat-accordion>
+        </ng-container>
+      </muh-expansion-panel>
+    </mat-accordion>
+  </div >
+</div>

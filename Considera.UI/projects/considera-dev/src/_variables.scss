@@ -1,0 +1,38 @@
+$fib-987: 987px;
+$fib-610: 610px;
+$fib-377: 377px;
+$fib-233: 233px;
+$fib-144: 144px;
+$fib-89: 89px;
+$fib-55: 55px;
+$fib-34: 34px;
+$fib-21: 21px;
+$fib-13: 13px;
+$fib-8: 8px;
+$fib-5: 5px;
+$core-16: 16px;
+$desktop-footer-height: 64px;
+$phone-footer-height: 56px;
+
+
+// considera.dev
+$space-grey: rgb(28, 28, 30);
+$very-light-grey: rgb(240, 240, 240);
+$light-grey: rgb(200, 200, 200);
+$mid-grey: rgb(120, 120, 120);
+$purple: rgb(115, 0, 255);
+$red: rgb(210, 60, 115);
+$gold-transparent: rgba(252, 213, 63, 0.44);
+$card-border-radius: 4px;
+$light-divider: rgb(224, 224, 224);
+
+// musique.hub
+$musique-purple: rgb(160, 153, 255);
+$musique-purple-focus: rgb(132, 124, 255);
+$musique-light-grey: rgb(250, 250, 250);
+
+@mixin for-4k-screen { @media screen and (min-width: 2559px) { @content; } }
+@mixin for-desktop-screen { @media screen and (min-width: 1280px) and (max-width: 2559px) { @content; } }
+@mixin for-laptop-screen { @media screen and (min-width: 769px) and (max-width: 1279px) { @content; } }
+@mixin for-tablet-screen { @media screen and (min-width: 481px) and (max-width: 768px) { @content; } }
+@mixin for-phone-screen { @media screen and (min-width: 0px) and (max-width: 480px) { @content; } }

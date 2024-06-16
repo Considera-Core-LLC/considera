@@ -1,0 +1,14 @@
+<mat-form-field class="mat-input-field" appearance="outline" color="accent">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    (input)="onInputChange()"
+    (focus)="picker.open()"
+    [matDatepicker]="picker"
+    [required]="required"
+    [(ngModel)]="input"
+    placeholder="Choose a date"
+    matInput
+    readonly>
+  <mat-datepicker-toggle [for]="picker" matIconSuffix/>
+  <mat-datepicker #picker/>
+</mat-form-field>

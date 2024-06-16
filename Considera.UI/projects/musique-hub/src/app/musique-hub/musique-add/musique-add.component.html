@@ -1,0 +1,26 @@
+<div class="content">
+
+  <div class="content-header">
+    <span>Add</span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="content-body" *ngIf="MuhLoginDialogComponent.loggedIn()">
+    <musique-add-artist class="body-expansion-panel" [genreOptions]="genreOptions"/>
+    <app-musique-add-genre class="body-expansion-panel" [genreOptions]="genreOptions" (genreDataChanged)="loadGenres()"/>
+    <app-musique-modify-genre class="body-expansion-panel" [genreOptions]="genreOptions" (genreDataChanged)="loadGenres()"/>
+    <app-musique-add-album class="body-expansion-panel" [genreOptions]="genreOptions" [artistOptions]="artistOptions"/>
+    <app-musique-add-song [hidden]="true"  class="body-expansion-panel" [genreOptions]="genreOptions"/>
+    <app-musique-add-catalog [hidden]="true" class="body-expansion-panel" [genreOptions]="genreOptions"/>
+  </div>
+
+  <div class="content-body" *ngIf="!MuhLoginDialogComponent.loggedIn()">
+    <mat-card class="login-panel">
+      <mat-card-title>
+        <span>Log in to add!</span>
+      </mat-card-title>
+    </mat-card>
+  </div>
+
+</div>

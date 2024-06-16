@@ -1,0 +1,37 @@
+@import '../../variables';
+
+mat-toolbar {
+  z-index: 2;
+  box-shadow: 0 -5px 10px 10px rgba(0, 0, 0, 0.2);
+  background-color: $very-light-grey;
+  position: fixed;
+  height: 64px;
+  button, span {
+    font-family: expressa, serif;
+    color: $space-grey;
+  }
+  img {
+    width: 45px;
+    color: black;
+    margin-right: $fib-8;
+    margin-left: -$fib-5;
+    filter: brightness(0.7);
+  }
+  span {
+    font-size: $fib-34;
+  }
+
+  .example-spacer {
+    flex: 1 0 auto;
+  }
+}
+
+
+.page {
+  margin-top: $desktop-footer-height;
+
+  .bottom {
+    height: $fib-5;
+    background-color: rgb(122,48,205);
+  }
+}

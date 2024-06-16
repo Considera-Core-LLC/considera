@@ -1,0 +1,38 @@
+<div class="dialog-title">
+  <span>Login</span>
+</div>
+<mat-dialog-content class="dialog-content">
+
+  <muh-input-row>
+      <ng-container inputs>
+      <mat-form-field class="mat-input-field" appearance="outline" color="accent">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="usernameInput" placeholder="Placeholder" required="true">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="mat-input-field" appearance="outline" color="accent">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="passwordInput" placeholder="Placeholder" type="password" required="true">
+        <mat-icon matSuffix>password</mat-icon>
+      </mat-form-field>
+    </ng-container>
+  </muh-input-row>
+
+</mat-dialog-content>
+
+<mat-divider></mat-divider>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-stroked-button color="accent" (click)="cancelLogin()">
+    <span>Cancel</span>
+  </button>
+  <button mat-raised-button color="accent" (click)="login()">
+    <mat-progress-spinner class="button-progress" *ngIf="loggingIn" diameter="20" mode="indeterminate"/>
+    <span *ngIf="!loggingIn">Login</span>
+  </button>
+  <button mat-raised-button color="accent" (click)="register()">
+    <mat-progress-spinner class="button-progress" *ngIf="loggingIn" diameter="20" mode="indeterminate"/>
+    <span *ngIf="!loggingIn">Register</span>
+  </button>
+</mat-dialog-actions>

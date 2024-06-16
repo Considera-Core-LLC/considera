@@ -1,0 +1,89 @@
+@import '../../../variables';
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: var(--background-gif);
+  background-position-y: -100px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.3);
+  z-index: -1;
+}
+
+.header {
+  height: calc(100vh - $desktop-footer-height);
+
+  // Display
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+
+  .name {
+    display: inline-block;
+    font-family: expressa, serif;
+    color: white;
+  }
+
+  .desc {
+    display: inline-block;
+    font-family: coolveticaRg, serif;
+    color: #e1e1e1;
+  }
+
+  .bio {
+    display: inline-block;
+    font-family: louisGeorgeCafeBold, serif;
+    color: #afafaf;
+  }
+}
+
+@include for-4k-screen {
+  .header {
+    padding: 0 $fib-610 0 $fib-610;
+    .name {
+      font-size: $fib-89;
+    }
+  }
+}
+@include for-desktop-screen {
+  .header {
+    padding: 0 $fib-610 0 $fib-610;
+    .name {
+      font-size: $fib-89;
+    }
+  }
+}
+@include for-laptop-screen {
+  .header {
+    padding: 0 $fib-144 0 $fib-144;
+    .name {
+      font-size: $fib-89;
+    }
+  }
+}
+@include for-tablet-screen {
+  .header {
+    padding: 0 $fib-34 0 $fib-34;
+    .name {
+      font-size: $fib-89;
+    }
+  }
+}
+@include for-phone-screen {
+  .header {
+    padding: 0 $fib-34 0 $fib-34;
+    .name {
+      font-size: $fib-55;
+    }
+  }
+}

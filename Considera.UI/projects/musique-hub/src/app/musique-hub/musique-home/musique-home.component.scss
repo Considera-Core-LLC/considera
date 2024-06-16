@@ -1,0 +1,29 @@
+@import '../../../variables';
+
+.content {
+  flex-grow: 1;
+  background-color: $musique-light-grey;
+
+  .content-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    padding: calc($fib-13);
+
+    span {
+      font-size: $fib-21;
+      font-family: "coolveticaRg", serif;
+    }
+  }
+
+  .content-body {
+    display: flex;
+    flex-direction: column;
+    row-gap: $fib-34;
+  }
+}
+
+mat-divider {
+  background-color: $light-divider;
+}

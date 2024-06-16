@@ -1,0 +1,72 @@
+@import 'projects/musique-hub/src/_variables.scss';
+
+.content {
+  height: 100%;
+  background-color: $musique-light-grey;
+
+  .content-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    padding: calc($fib-13);
+
+    span {
+      font-size: $fib-21;
+      font-family: "coolveticaRg", serif;
+    }
+  }
+
+  .content-body {
+    display: flex;
+    flex-direction: column;
+    padding: calc($fib-21);
+
+    .grid-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 1rem;
+      justify-content: center;
+    }
+  }
+
+}
+
+mat-divider {
+  background-color: $light-divider;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+/*
+ * This padding sets alignment of the nested nodes.
+ */
+.example-tree .mat-nested-tree-node div[role=group] {
+  padding-left: 40px;
+}
+
+/*
+ * Padding for leaf nodes.
+ * Leaf nodes need to have padding so as to align with other non-leaf nodes
+ * under the same parent.
+ */
+.example-tree div[role=group] > .mat-tree-node {
+  padding-left: 40px;
+}
+
+.test-wrap {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

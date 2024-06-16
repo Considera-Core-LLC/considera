@@ -1,0 +1,231 @@
+@import '../../../variables';
+
+.footer {
+  background-color: $space-grey;
+
+  .footer-grid {
+    display: flex;
+    height: 100%;
+
+    .grid-left {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: $fib-144;
+        margin-bottom: $fib-34;
+      }
+
+      .logo {
+        font-family: "recharge", serif;
+        color: $very-light-grey;
+        margin-bottom: $fib-13;
+        text-wrap: nowrap;
+      }
+
+      .secondLogo {
+        margin-bottom: 3px;
+      }
+
+      .secondLogo, .thirdLogo {
+        font-family: "recharge", serif;
+        color: $light-grey;
+      }
+
+      .moto {
+        display: flex;
+        flex-direction: column;
+        font-family: "coolveticaRg", serif;
+        margin-top: auto;
+
+        .main {
+          color: rgb(150, 150, 150);
+          margin-bottom: 3px;
+        }
+
+        .sub {
+          color: $mid-grey;
+          font-size: 18px;
+          font-family: "louisGeorgeCafeBold", serif;
+        }
+
+        .copyright {
+          color: $mid-grey;
+          margin-top:$fib-21;
+          font-size: 13px;
+          font-family: "louisGeorgeCafeBold", serif;
+
+          span {
+            font-family: "expressa", serif;
+          }
+        }
+      }
+    }
+
+    .grid-right {
+      display: flex;
+      flex-direction: row;
+
+      .grid-tile {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+          font-family: "expressa", serif;
+          font-size: 25px;
+          color: $mid-grey;
+          margin-bottom: 40%;
+          margin-top: $fib-5;
+          text-wrap: nowrap;
+        }
+
+        .links {
+          display: flex;
+          flex-direction: column;
+          row-gap: $fib-13;
+
+          a {
+            text-decoration: none;
+          }
+
+          .link {
+            display: flex;
+            align-items: center;
+
+            font-size: $fib-21;
+            font-family: "louisGeorgeCafeBold", serif;
+            color: $very-light-grey;
+
+            .download::before {
+              color: $mid-grey;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              font-size: 23px;
+            }
+            .download {
+              height: 23px;
+              margin-top: -1px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+
+@include for-4k-screen {
+  .footer-grid {
+    flex-direction: row;
+
+    .grid-left {
+      display: flex;
+      flex-direction: column;
+      width: 34%;
+      margin: $fib-34;
+      padding-right: $fib-34;
+
+      .logo {
+        font-size: $fib-34;
+      }
+
+      .secondLogo, .thirdLogo {
+        font-size: $fib-21;
+      }
+
+      .thirdLogo {
+        margin-bottom: 400px;
+      }
+    }
+
+    .grid-right {
+      width: 66%;
+      .grid-tile {
+        margin: $fib-34;
+      }
+    }
+  }
+}
+@include for-desktop-screen {
+  .footer-grid {
+    flex-direction: row;
+
+    .grid-tile {
+      width: 33%;
+    }
+  }
+}
+@include for-laptop-screen {
+  .footer-grid {
+    flex-direction: row;
+  }
+}
+@include for-tablet-screen {
+  .footer-grid {
+    flex-direction: column-reverse;
+
+    .grid-left {
+      display: flex;
+      flex-direction: column;
+      margin: $fib-34;
+      padding-right: $fib-34;
+    }
+  }
+}
+@include for-phone-screen {
+  .footer-grid {
+    flex-direction: column-reverse;
+
+    .split-v {
+      visibility: hidden;
+    }
+
+    .split-h {
+      visibility: unset;
+    }
+
+    .grid-left {
+      display: flex;
+      flex-direction: column;
+      margin: $fib-34;
+      padding-right: $fib-34;
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .secondLogo, .thirdLogo {
+        font-size: $fib-13;
+      }
+
+      .thirdLogo {
+        margin-bottom: 100px;
+      }
+    }
+
+    .grid-right {
+      display: flex;
+      flex-direction: column;
+      margin: $fib-34;
+      padding-right: $fib-34;
+
+      .grid-tile {
+        width: 100%;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .secondLogo, .thirdLogo {
+        font-size: $fib-13;
+      }
+
+      .thirdLogo {
+        margin-bottom: 100px;
+      }
+    }
+  }
+}
