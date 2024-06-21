@@ -1,4 +1,4 @@
-﻿namespace ConsideraDevApi.Core.Models;
+﻿namespace Considera.Api.Core.Models;
 
 public class ObjectLog<T> where T : new()
 {

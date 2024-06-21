@@ -1,16 +1,14 @@
-﻿using System.Globalization;
-using Amazon.CloudFront;
+﻿using Amazon.CloudFront;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Transfer;
 using Amazon.S3.Util;
-using ConsideraDevApi.Core.Interfaces.MusiqueHub;
-using ConsideraDevApi.Core.Interfaces.MusiqueHub.Services;
-using ConsideraDevApi.Core.Models.MusiqueHub;
+using Considera.Api.Core.Interfaces.MusiqueHub.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-namespace ConsideraDev.Api.Controllers.Api.MusiqueHub;
+namespace Considera.Api.Controllers.Api.MusiqueHub;
+
 
 [ApiController]
 [Route("api/musique/[controller]")]

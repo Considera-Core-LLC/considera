@@ -1,8 +1,9 @@
-﻿using ConsideraDevApi.Core.Models.MusiqueHub;
+﻿using Considera.Api.Core.Models.MusiqueHub;
 using Microsoft.EntityFrameworkCore;
+
 #pragma warning disable CS8618
 
-namespace ConsideraDev.Api.DbContexts;
+namespace Considera.Api.DbContexts;
 
 public class MusiqueHubDbContext : DbContext
 {

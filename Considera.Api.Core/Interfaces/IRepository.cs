@@ -1,4 +1,4 @@
-﻿namespace ConsideraDevApi.Core.Interfaces;
+﻿namespace Considera.Api.Core.Interfaces;
 
 public interface IRepository<TEntity> where TEntity : class, IEntity
 {

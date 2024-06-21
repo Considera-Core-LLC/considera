@@ -1,7 +1,7 @@
-﻿using ConsideraDevApi.Core.Models.Games;
+﻿using Considera.Api.Core.Models.Games;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsideraDev.Api.DbContexts;
+namespace Considera.Api.DbContexts;
 
 public class GamesDbContext : DbContext
 {

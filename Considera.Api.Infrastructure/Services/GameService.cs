@@ -1,8 +1,7 @@
-﻿using ConsideraDevApi.Core.Interfaces;
-using ConsideraDevApi.Core.Interfaces.Games;
-using ConsideraDevApi.Core.Models.Games;
+﻿using Considera.Api.Core.Interfaces.Games;
+using Considera.Api.Core.Models.Games;
 
-namespace ConsideraDevApi.Infrastructure.Services;
+namespace Considera.Api.Infrastructure.Services;
 
 public class GameService : IGameService
 {

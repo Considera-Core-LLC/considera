@@ -1,8 +1,8 @@
-﻿using ConsideraDevApi.Core.Interfaces.Games;
-using ConsideraDevApi.Core.Models.Games;
+﻿using Considera.Api.Core.Interfaces.Games;
+using Considera.Api.Core.Models.Games;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ConsideraDev.Api.Controllers.Api.Games;
+namespace Considera.Api.Controllers.Api.Games;
 
 [ApiController]
 [Route("api/[controller]")]

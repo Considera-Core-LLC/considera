@@ -3,22 +3,21 @@ using Amazon.CloudFront;
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
 using Amazon.S3;
-using Amazon.S3.Model;
 using Amazon.SecurityToken;
 using Amazon.SecurityToken.Model;
 using Castle.Windsor;
 using Castle.Windsor.MsDependencyInjection;
-using ConsideraDev.Api.DbContexts;
-using ConsideraDevApi.Core.Interfaces.Games;
-using ConsideraDevApi.Core.Interfaces.MusiqueHub;
-using ConsideraDevApi.Core.Interfaces.MusiqueHub.Services;
-using ConsideraDevApi.Infrastructure.Repositories.Games;
-using ConsideraDevApi.Infrastructure.Repositories.MusiqueHub;
-using ConsideraDevApi.Infrastructure.Services;
-using ConsideraDevApi.Infrastructure.Services.MusiqueHub;
+using Considera.Api.Core.Interfaces.Games;
+using Considera.Api.Core.Interfaces.MusiqueHub;
+using Considera.Api.Core.Interfaces.MusiqueHub.Services;
+using Considera.Api.DbContexts;
+using Considera.Api.Infrastructure.Repositories.Games;
+using Considera.Api.Infrastructure.Repositories.MusiqueHub;
+using Considera.Api.Infrastructure.Services;
+using Considera.Api.Infrastructure.Services.MusiqueHub;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsideraDev.Api;
+namespace Considera.Api;
 
 public class Program
 {

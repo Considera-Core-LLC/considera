@@ -1,4 +1,4 @@
-namespace ConsideraDevApi.Infrastructure.Tests;
+namespace Considera.Api.Infrastructure.Tests;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]

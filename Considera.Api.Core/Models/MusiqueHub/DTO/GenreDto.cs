@@ -1,6 +1,6 @@
 ﻿#pragma warning disable CS8618
 
-namespace ConsideraDevApi.Core.Models.MusiqueHub.DTO;
+namespace Considera.Api.Core.Models.MusiqueHub.DTO;
 
 public class GenreDto
 {

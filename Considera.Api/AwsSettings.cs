@@ -1,4 +1,4 @@
-﻿namespace ConsideraDev.Api;
+﻿namespace Considera.Api;
 
 public class AwsSettings
 {

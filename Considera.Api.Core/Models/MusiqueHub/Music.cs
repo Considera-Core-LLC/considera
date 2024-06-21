@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ConsideraDevApi.Core.Interfaces;
+using Considera.Api.Core.Interfaces;
 
-namespace ConsideraDevApi.Core.Models.MusiqueHub;
+namespace Considera.Api.Core.Models.MusiqueHub;
 
 [Table("Music")]
 public class Music : IEntity

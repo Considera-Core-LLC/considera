@@ -1,7 +1,7 @@
-﻿using ConsideraDevApi.Core.Interfaces;
+﻿using Considera.Api.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsideraDevApi.Infrastructure.Repositories;
+namespace Considera.Api.Infrastructure.Repositories;
 
 public class BaseRepository<TEntity>
     where TEntity : class, IEntity

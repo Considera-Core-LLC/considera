@@ -1,7 +1,6 @@
-﻿using ConsideraDevApi.Core.Interfaces.MusiqueHub;
-using ConsideraDevApi.Core.Models.MusiqueHub;
+﻿using Considera.Api.Core.Models.MusiqueHub;
 
-namespace ConsideraDevApi.Infrastructure.Tests.Repositories.MusiqueHub;
+namespace Considera.Api.Infrastructure.Tests.Repositories.MusiqueHub;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]

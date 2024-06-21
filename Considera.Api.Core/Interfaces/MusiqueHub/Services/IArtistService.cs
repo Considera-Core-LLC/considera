@@ -1,7 +1,7 @@
-﻿using ConsideraDevApi.Core.Models.MusiqueHub;
-using ConsideraDevApi.Core.Models.MusiqueHub.DTO;
+﻿using Considera.Api.Core.Models.MusiqueHub;
+using Considera.Api.Core.Models.MusiqueHub.DTO;
 
-namespace ConsideraDevApi.Core.Interfaces.MusiqueHub.Services;
+namespace Considera.Api.Core.Interfaces.MusiqueHub.Services;
 
 public interface IArtistService
 {

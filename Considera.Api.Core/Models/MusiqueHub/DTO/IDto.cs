@@ -1,4 +1,4 @@
-﻿namespace ConsideraDevApi.Core.Models.MusiqueHub.DTO;
+﻿namespace Considera.Api.Core.Models.MusiqueHub.DTO;
 
 public interface IDto<T, TDto>
 {

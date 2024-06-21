@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using ConsideraDevApi.Core.Interfaces;
+using Considera.Api.Core.Interfaces;
 
-namespace ConsideraDevApi.Core.Models.Games;
+namespace Considera.Api.Core.Models.Games;
 
 [Table("IdleResearch")]
 public class IdleResearch : IEntity

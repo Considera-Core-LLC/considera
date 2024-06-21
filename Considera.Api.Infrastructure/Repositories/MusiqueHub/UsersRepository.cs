@@ -1,8 +1,8 @@
-﻿using ConsideraDevApi.Core.Interfaces.MusiqueHub;
-using ConsideraDevApi.Core.Models.MusiqueHub;
+﻿using Considera.Api.Core.Interfaces.MusiqueHub;
+using Considera.Api.Core.Models.MusiqueHub;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsideraDevApi.Infrastructure.Repositories.MusiqueHub;
+namespace Considera.Api.Infrastructure.Repositories.MusiqueHub;
 
 public class UsersRepository : BaseRepository<User>, IUsersRepository
 {

@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Immutable;
-using ConsideraDevApi.Core.Interfaces.MusiqueHub;
-using ConsideraDevApi.Core.Models.MusiqueHub;
+﻿using System.Collections.Immutable;
+using Considera.Api.Core.Interfaces.MusiqueHub;
+using Considera.Api.Core.Models.MusiqueHub;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsideraDevApi.Infrastructure.Repositories.MusiqueHub;
+namespace Considera.Api.Infrastructure.Repositories.MusiqueHub;
 
 public class GenresRepository : BaseRepository<Genre>, IGenresRepository
 {

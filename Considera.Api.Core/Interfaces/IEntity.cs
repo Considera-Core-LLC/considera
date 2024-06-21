@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ConsideraDevApi.Core.Interfaces;
+﻿namespace Considera.Api.Core.Interfaces;
 
 public interface IEntity
 {

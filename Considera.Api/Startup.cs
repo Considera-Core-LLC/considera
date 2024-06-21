@@ -1,9 +1,7 @@
-using Amazon.S3;
 using Amazon.CloudFront;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Amazon.S3;
 
-namespace ConsideraDev.Api
+namespace Considera.Api
 {
     public class Startup
     {

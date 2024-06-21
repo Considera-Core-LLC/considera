@@ -1,6 +1,6 @@
-﻿using ConsideraDevApi.Core.Models.Games;
+﻿using Considera.Api.Core.Models.Games;
 
-namespace ConsideraDevApi.Core.Interfaces.Games;
+namespace Considera.Api.Core.Interfaces.Games;
 
 public interface IIdleResearchRepository : IRepository<IdleResearch>
 {

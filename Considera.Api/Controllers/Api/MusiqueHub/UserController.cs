@@ -1,9 +1,8 @@
-﻿using ConsideraDevApi.Core.Interfaces.MusiqueHub;
-using ConsideraDevApi.Core.Interfaces.MusiqueHub.Services;
-using ConsideraDevApi.Core.Models.MusiqueHub;
+﻿using Considera.Api.Core.Interfaces.MusiqueHub.Services;
+using Considera.Api.Core.Models.MusiqueHub;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ConsideraDev.Api.Controllers.Api.MusiqueHub;
+namespace Considera.Api.Controllers.Api.MusiqueHub;
 
 [ApiController]
 [Route("api/musique/[controller]")]

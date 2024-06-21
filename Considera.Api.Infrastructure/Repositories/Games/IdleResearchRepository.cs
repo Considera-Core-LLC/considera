@@ -1,9 +1,8 @@
-﻿using ConsideraDevApi.Core.Interfaces;
-using ConsideraDevApi.Core.Interfaces.Games;
-using ConsideraDevApi.Core.Models.Games;
+﻿using Considera.Api.Core.Interfaces.Games;
+using Considera.Api.Core.Models.Games;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsideraDevApi.Infrastructure.Repositories.Games;
+namespace Considera.Api.Infrastructure.Repositories.Games;
 
 public class IdleResearchRepository : BaseRepository<IdleResearch>, IIdleResearchRepository
 {

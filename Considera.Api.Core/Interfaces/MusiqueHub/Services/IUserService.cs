@@ -1,6 +1,6 @@
-﻿using ConsideraDevApi.Core.Models.MusiqueHub;
+﻿using Considera.Api.Core.Models.MusiqueHub;
 
-namespace ConsideraDevApi.Core.Interfaces.MusiqueHub.Services;
+namespace Considera.Api.Core.Interfaces.MusiqueHub.Services;
 
 public interface IUserService
 {
