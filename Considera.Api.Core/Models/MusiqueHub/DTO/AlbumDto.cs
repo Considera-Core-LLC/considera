@@ -1,30 +1,50 @@
-﻿#pragma warning disable CS8618
+﻿// ReSharper disable MemberCanBePrivate.Global
+#pragma warning disable CS8618
 
 namespace Considera.Api.Core.Models.MusiqueHub.DTO;
 
-public class AlbumDto
+public class AlbumDto : IDto
 {
-    public string Id { get; set; }
-    public string AuthorId { get; set; }
-    public string VerifierId { get; set; }
-    public string Name { get; set; }
-    public DateTime ReleaseDate { get; set; }
-    public string ReleaseType { get; set; }
-    public string Description { get; set; }
-    public string Language { get; set; }
+    public string? Id { get; init; }
+    public string? AuthorId { get; init; }
+    public string? VerifierId { get; init; }
+    public string Name { get; init; }
+    public DateTime ReleaseDate { get; init; }
+    public string? ReleaseType { get; init; }
+    public string Description { get; init; }
+    public string? Language { get; init; }
+    public List<string>? ArtistIds { get; init; }
+    public List<string>? GenreIds { get; init; }
 
-    public Album ToAlbum()
-    {
-        return new Album
+    public bool IsValid() =>
+        !string.IsNullOrEmpty(Name) && 
+        !string.IsNullOrEmpty(Description);
+    
+    public static Album MapTo(AlbumDto albumDto) =>
+        new()
         {
-            Id = Guid.TryParse(Id, out var id) ? id : Guid.Empty,
-            AuthorId = Guid.TryParse(AuthorId, out var authorId) ? authorId : Guid.Empty,
-            VerifierId = Guid.TryParse(VerifierId, out var verifierId) ? verifierId : Guid.Empty,
-            Name = Name,
-            ReleaseDate = ReleaseDate,
-            ReleaseType = Guid.TryParse(ReleaseType, out var releaseType) ? releaseType : Guid.Empty,
-            Description = Description,
-            Language = Language
+            Id = Guid.TryParse(albumDto.Id, out var id) ? id : Guid.Empty,
+            AuthorId = Guid.TryParse(albumDto.AuthorId, out var authorId) ? authorId : Guid.Empty,
+            VerifierId = Guid.TryParse(albumDto.VerifierId, out var verifierId) ? verifierId : Guid.Empty,
+            Name = albumDto.Name,
+            ReleaseDate = albumDto.ReleaseDate,
+            ReleaseType = Guid.TryParse(albumDto.ReleaseType, out var releaseType) ? releaseType : Guid.Empty,
+            Description = albumDto.Description,
+            Language = albumDto.Language,
         };
-    }
+    
+    public static AlbumDto MapFrom(Album album) =>
+        new()
+        {
+            Id = album.Id.ToString(),
+            AuthorId = album.AuthorId.ToString(),
+            VerifierId = album.VerifierId.ToString(),
+            Name = album.Name,
+            ReleaseDate = album.ReleaseDate,
+            ReleaseType = album.ReleaseType.ToString(),
+            Description = album.Description,
+            Language = album.Language,
+            ArtistIds = album.Artists.Select(a => a.Id.ToString()).ToList(),
+            GenreIds = album.Genres.Select(g => g.Id.ToString()).ToList(),
+        };
 }

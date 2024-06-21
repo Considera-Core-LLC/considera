@@ -31,7 +31,7 @@ public class MusicController : ControllerBase
         _genreService = genreService;
     }
 
-    // Artists
+    #region Artists
     [HttpGet("GetArtist")]
     public async Task<ActionResult<IEnumerable<Artist>>> GetArtist(string artistId) => 
         Ok(await _artistService.GetArtist(artistId));
@@ -43,29 +43,9 @@ public class MusicController : ControllerBase
     [HttpGet("GetArtistsByIds")]
     public async Task<ActionResult<IEnumerable<Artist>>> GetArtists(string artistIds) => 
         Ok(await _artistService.GetArtists(artistIds.Split(",")));
+    #endregion
     
-    [HttpPost("AddArtist")]
-    public async Task<ActionResult> AddArtist([FromBody] ArtistDto artist)
-    {
-        if (!artist.IsValid())
-            return BadRequest(new ObjectLog<ArtistDto>
-            {
-                Data = artist,
-                Message = "Artist name and bio must be provided.",
-                Success = false
-            });
-
-        await _artistService.AddArtist(artist);
-
-        return Ok(new ObjectLog<ArtistDto>
-        {
-            Data = artist,
-            Message = "Artist has been added.",
-            Success = true
-        });
-    }
-    
-    // Albums
+    #region Albums
     [HttpGet("GetAllAlbums")]
     public async Task<ActionResult<IEnumerable<Album>>> GetAllAlbums() => 
         Ok(await _albumService.GetAlbums());
@@ -82,50 +62,25 @@ public class MusicController : ControllerBase
     public async Task<ActionResult<IEnumerable<Album>>> GetAlbumsByGenreIds(string genreIds) => 
         Ok(await _albumService.GetAlbumsByGenreIds(genreIds.Split(",")));
 
-    [HttpGet("AddAlbum")]
-    public async Task<ActionResult> AddAlbum(
-        string name,
-        string artistIds,
-        string genreIds,
-        string desc, 
-        DateTime releaseDate,
-        string authorId, 
-        string verifierId)
-    {
-        if (string.IsNullOrEmpty(name))
-            return BadRequest("Album name must be provided.");
 
-        await _albumService.AddAlbum(
-            new Album
-            {
-                Name = name,
-                Description = desc,
-                ReleaseDate = releaseDate,
-                AuthorId = !Guid.TryParse(authorId, out var aId) ? Guid.Empty : aId,
-                VerifierId = !Guid.TryParse(verifierId, out var vId) ? Guid.Empty : vId
-            }, 
-            artistIds,
-            genreIds);
-        return Ok();
-    }
-    
     [HttpGet("GetAlbumsFromGenres")]
     public async Task<ActionResult<IEnumerable<Album>>> GetAlbumsFromGenres(string genreAlbumIds) => 
         Ok(await _albumService.GetAlbumsFromGenreAlbums(genreAlbumIds.Split(",")));
 
-    // Genres
+    #endregion
+
+    #region Genres
+
     [HttpGet("GetAllGenres")]
-    public async Task<ActionResult<IEnumerable<Genre>>> GetAllGenres() => 
-        Ok(await _genreService.GetAllGenres());
-    
-    [HttpGet("GetAllGenresWithAlbums")]
-    public async Task<ActionResult<IEnumerable<Genre>>> GetAllGenresWithAlbums() => 
-        Ok(await _genreService.GetAllGenresWithAlbums());
-    
+    public async Task<ActionResult<IEnumerable<Genre>>> GetAllGenres(
+        bool withAlbums = false, 
+        bool withArtists = false) => 
+        Ok(await _genreService.GetAllGenres(withAlbums, withArtists));
+
     [HttpGet("GetGenres")]
     public async Task<ActionResult<string>> GetAllGenres(string genreIds) => 
         Ok(await _genreService.GetGenres(genreIds.Split(",")));
-    
+
     [HttpGet("GetGenreAlbumsFromGenres")]
     public async Task<ActionResult<IEnumerable<AlbumGenre>>> GetGenreAlbumsFromGenres(string genreIds) => 
         Ok(await _musiqueHubService.GetGenreAlbumsFromGenres(genreIds.Split(",")));
@@ -133,23 +88,7 @@ public class MusicController : ControllerBase
     [HttpGet("GetGenre")]
     public async Task<ActionResult<IEnumerable<Genre>>> GetGenre(Guid genreId) => 
         Ok(await _genreService.GetGenre(genreId));
-    
-    [HttpGet("AddGenres")]
-    public async Task<ActionResult> AddGenres(Guid authorId, string genres)
-    {
-        if (genres.Length == 0)
-            return BadRequest("No genres were provided.");
-        
-        await _genreService
-            .AddGenres(genres.Split(",")
-                .Select(x => new Genre
-                {
-                    Name = Genre.GetValidName(x)
-                }));
 
-        return Ok();
-    }
-    
     [HttpGet("ModifyGenre")]
     public async Task<ActionResult<IEnumerable<Genre>>> ModifyGenre(
         Guid genreId,
@@ -183,4 +122,64 @@ public class MusicController : ControllerBase
         
         return Ok();
     }
+    #endregion
+
+    #region Adders
+    [HttpPost("AddArtist")]
+    public async Task<ActionResult> AddArtist([FromBody] ArtistDto artist) => 
+        await Add(
+            artist, 
+            _artistService, 
+            "Artist has been added.", 
+            "Artist name and bio must be provided.");
+    
+    [HttpPost("AddAlbum")]
+    public async Task<ActionResult> AddAlbum([FromBody] AlbumDto album) => 
+        await Add(
+            album, 
+            _albumService, 
+            "Album has been added.", 
+            "Album name and description must be provided.");
+
+    // todo
+    [HttpGet("AddGenres")]
+    public async Task<ActionResult> AddGenres(Guid authorId, string genres)
+    {
+        if (genres.Length == 0)
+            return BadRequest("No genres were provided.");
+        
+        await _genreService
+            .AddGenres(genres.Split(",")
+                .Select(x => new Genre
+                {
+                    Name = Genre.GetValidName(x)
+                }));
+
+        return Ok();
+    }
+
+    private async Task<ActionResult> Add<TDto>(
+        TDto dto, 
+        IService<TDto> service,
+        string success, 
+        string failure) where TDto : IDto
+    {
+        if (!dto.IsValid())
+            return BadRequest(new ObjectLog<IDto>
+            {
+                Data = dto,
+                Message = failure,
+                Success = false
+            });
+
+        await service.Add(dto);
+
+        return Ok(new ObjectLog<IDto>
+        {
+            Data = dto,
+            Message = success,
+            Success = true
+        });
+    }
+    #endregion
 }

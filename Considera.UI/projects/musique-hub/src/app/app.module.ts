@@ -53,6 +53,7 @@ import {MatList, MatListItem, MatNavList} from "@angular/material/list";
 import {
   MusiqueModifyGenreComponent
 } from "./musique-hub/musique-add/musique-modify-genre/musique-modify-genre.component";
+import { MuhCardAlbumComponent } from './_templates/muh-cards/muh-card-album/muh-card-album.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -77,7 +78,8 @@ import {
     MusiqueModifyGenreComponent,
     MusiqueAddAlbumComponent,
     MusiqueAddSongComponent,
-    MusiqueAddCatalogComponent
+    MusiqueAddCatalogComponent,
+    MuhCardAlbumComponent
   ],
   exports: [
     AppComponent,

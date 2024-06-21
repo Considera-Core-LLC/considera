@@ -120,6 +120,7 @@ mat-toolbar {
   app-musique-list{
     flex-grow: 1;
     height: auto;
+    width: calc(100% - $fib-233);
   }
 
   .bottom {

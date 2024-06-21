@@ -4,6 +4,7 @@ namespace Considera.Api.Core.Interfaces.MusiqueHub;
 
 public interface IGenresRepository : IRepository<Genre>
 {
+    Task<IEnumerable<Genre>> GetAll(bool withAlbums, bool withArtists);
     Task AddGenre(Genre genre);
     Task<IEnumerable<Genre>> AssignSubgenres(IEnumerable<Genre> genres);
     Task<bool> GenreExists(Genre genre);

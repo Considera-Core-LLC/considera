@@ -1,7 +1,6 @@
 ﻿namespace Considera.Api.Core.Models.MusiqueHub.DTO;
 
-public interface IDto<T, TDto>
+public interface IDto
 {
-    public T MapTo(TDto objDto);
-    public TDto MapFrom(T obj);
+    bool IsValid();
 }

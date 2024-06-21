@@ -7,7 +7,7 @@ namespace Considera.Api.Infrastructure.Repositories.MusiqueHub;
 /// <summary>
 /// Albums repository for the MusiqueHub database.
 /// </summary>
-public class ArtistAlbumsRepository : BaseRepository<ArtistAlbum>, IArtistAlbumsRepository
+public class ArtistAlbumsRepository : BaseRepository<AlbumArtist>, IArtistAlbumsRepository
 {
     // why cant the methods be static?
     private readonly IArtistsRepository _artistsRepository;
@@ -31,11 +31,6 @@ public class ArtistAlbumsRepository : BaseRepository<ArtistAlbum>, IArtistAlbums
         await Context.Set<AlbumGenre>().AnyAsync(aa =>
             aa.GenreId.ToString() == album.Name 
             && aa.GenreId.ToString() == genre.Name);
-    
-    public async Task<bool> AlbumHasArtist(Album album, Artist artist) =>
-        await Context.Set<ArtistAlbum>().AnyAsync(aa =>
-            aa.Artist.Name == artist.Name 
-            && aa.Album.Name == album.Name);
 
     /// <summary>
     /// Adds an album with respect to artists.
@@ -44,7 +39,7 @@ public class ArtistAlbumsRepository : BaseRepository<ArtistAlbum>, IArtistAlbums
     /// <param name="artists"></param>
     public async Task MapArtistsToAlbum(Album album, IEnumerable<Artist> artists)
     {
-        var artistAlbums = new List<ArtistAlbum>();
+        var artistAlbums = new List<AlbumArtist>();
 
         foreach (var artist in artists.ToList())
         {
@@ -56,18 +51,16 @@ public class ArtistAlbumsRepository : BaseRepository<ArtistAlbum>, IArtistAlbums
             
             if (fetchedAlbum == null) continue;
 
-            artistAlbums.Add(new ArtistAlbum
+            artistAlbums.Add(new AlbumArtist
             {
                 ArtistId = artist.Id,
-                Artist = artist,
                 AlbumId = fetchedAlbum.Id,
-                Album = fetchedAlbum,
             });
         }
 
         if (artistAlbums.Any())
             await Context
-                .Set<ArtistAlbum>()
+                .Set<AlbumArtist>()
                 .AddRangeAsync(artistAlbums);
 
         await Context.SaveChangesAsync();

@@ -28,8 +28,8 @@ export class MusiqueService {
               private _musicAlbumsService: MusiqueAlbumsService,
               private _musicGenresService: MusiqueGenresService) {}
 
-  public getGenresWithAlbums(): Observable<Genre[]> {
-    return this._musicGenresService.getAllGenresWithAlbums();
+  public getGenres(withAlbums: boolean, withArtists: boolean): Observable<Genre[]> {
+    return this._musicGenresService.getAllGenres(withAlbums, withArtists);
   }
 
   // Users

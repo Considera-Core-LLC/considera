@@ -28,6 +28,7 @@ export class MusiqueArtistsService {
   }
 
   public addArtist(artist: Artist): Observable<any> {
-    return this._httpMusiqueHubService.post(this.AddArtist, artist) as Observable<any>;
+    return this._httpMusiqueHubService
+      .post(this.AddArtist, artist) as Observable<any>;
   }
 }

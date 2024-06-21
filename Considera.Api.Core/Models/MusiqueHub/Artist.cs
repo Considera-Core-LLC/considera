@@ -17,4 +17,6 @@ public class Artist : IEntity
     public string? Bio { get; set; }
     public string Origin { get; set; }
     public DateTime FormedDate { get; set; }
+    public List<Album> Albums { get; set; }
+    public List<AlbumArtist> AlbumArtists { get; set; }
 }

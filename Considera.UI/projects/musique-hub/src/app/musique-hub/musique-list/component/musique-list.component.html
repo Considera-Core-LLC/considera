@@ -18,20 +18,21 @@
         <ng-container groups>
           <caption>Description: {{ genre.genre.description }}</caption>
           <caption>Albums</caption>
-          <div style="display: flex; flex-direction: row; column-gap: 10px">
 
-            <mat-card style="width: 300px" *ngFor="let album of genre.albums">
-              <mat-card-header>
-                <mat-card-title>{{album.name}}</mat-card-title>
-              </mat-card-header>
-              <mat-card-content>
-                <p class="test-wrap" >About: {{ album.description }}</p>
-                <p class="test-wrap" >Released: {{ album.releaseDate }}</p>
-              </mat-card-content>
-            </mat-card>
-
-
+          <div style="overflow: auto; height: 25%;">
+            <div
+              style="
+              display: flex;
+              flex-direction: row;
+              column-gap: 10px; padding-bottom: 5px;
+              height: 100%; flex-wrap: nowrap">
+              <muh-card-album
+                style="width: 200px"
+                [album]="album"
+                *ngFor="let album of genre.albums"/>
+            </div>
           </div>
+
           <mat-accordion class="example-headers-align" multi>
             <muh-expansion-panel
               class="body-expansion-panel group"

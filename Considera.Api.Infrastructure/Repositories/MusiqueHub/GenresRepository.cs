@@ -12,7 +12,20 @@ public class GenresRepository : BaseRepository<Genre>, IGenresRepository
     public DbSet<AlbumGenre> AlbumGenres => Context.Set<AlbumGenre>();
     
     public GenresRepository(DbContext context) : base(context) {}
-    
+
+    public async Task<IEnumerable<Genre>> GetAll(bool withAlbums, bool withArtists)
+    {
+        var genres = Genres.AsNoTracking();
+        
+        if (withAlbums && withArtists) 
+            genres = genres
+                .Include(x => x.Albums)
+                .ThenInclude(x => x.Artists);
+        else if (withAlbums) genres = genres.Include(x => x.Albums);
+        
+        return await genres.ToListAsync();
+    }
+
     public async Task AddGenre(Genre genre)
     {
         if (await GenreExists(genre)) return;

@@ -20,5 +20,7 @@ public class Album : IEntity
     public string? Language { get; set; }
     
     public List<Genre> Genres { get; set; }
+    public List<Artist> Artists { get; set; }
     public List<AlbumGenre> AlbumGenres { get; set; }
+    public List<AlbumArtist> AlbumArtists { get; set; }
 }

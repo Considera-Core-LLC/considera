@@ -28,6 +28,6 @@ public class ArtistService : IArtistService
     public async Task AddArtist(Artist artist) =>
         await _artistsRepository.Add(artist);
 
-    public async Task AddArtist(ArtistDto artistDto) => 
+    public async Task Add(ArtistDto artistDto) => 
         await AddArtist(ArtistDto.MapTo(artistDto));
 }

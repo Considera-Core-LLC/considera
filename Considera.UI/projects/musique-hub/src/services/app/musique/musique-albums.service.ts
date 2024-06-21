@@ -17,7 +17,7 @@ import {GenreAlbum} from "../../../models/app/musique/genre-album.model";
 export class MusiqueAlbumsService {
   private readonly GetAllAlbums = 'getallalbums';
   private readonly GetAlbumsByIds = 'getalbumsbyids';
-    private readonly GetAlbumsByGenreId = 'getalbumsbygenreid';
+  private readonly GetAlbumsByGenreId = 'getalbumsbygenreid';
   private readonly GetAlbumsByGenreIds = 'getalbumsbygenreids';
   private readonly GetAlbumsFromGenreAlbums = 'getalbumsfromgenrealbums';
   private readonly AddAlbum = 'addalbum';
@@ -26,11 +26,16 @@ export class MusiqueAlbumsService {
               private _httpMusiqueHubService: HttpMusiqueHubService) {}
 
   // Albums
-  public getAllAlbums(): Observable<Album[]> {
+  public getAlbums(): Observable<Album[]> {
     const request = this._httpMusiqueHubService
       .get(this.GetAllAlbums, new HttpParams()) as Observable<Album[]>;
     request.subscribe(MusiqueCache.SetAlbums);
     return request;
+  }
+
+  public addAlbum(album: Album): Observable<any> {
+    return this._httpMusiqueHubService
+      .post(this.AddAlbum, album) as Observable<any>;
   }
 
   public getAlbumsByIds(albumIds: string[]): Observable<Album[]> {
@@ -57,17 +62,5 @@ export class MusiqueAlbumsService {
         .append('genreAlbumIds', genreAlbumIds.join(','))) as Observable<Album[]>;
     request.subscribe(MusiqueCache.SetAlbums);
     return request;
-  }
-
-  public addAlbum(album: Album): Observable<boolean> {
-    return this._httpMusiqueHubService.get(this.AddAlbum, new HttpParams()
-      .append('name', album.name)
-      .append('artistIds', album.artistIds.join(','))
-      .append('genreIds', album.genreIds.join(','))
-      .append('desc', album.description)
-      .append('releaseDate', album.releaseDate.toISOString())
-      .append('authorId', album.authorId)
-      .append('verifierId', album.verifierId)
-    ) as Observable<boolean>;
   }
 }

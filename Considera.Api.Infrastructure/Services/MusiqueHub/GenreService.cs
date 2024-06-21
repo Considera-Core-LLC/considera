@@ -17,13 +17,8 @@ public class GenreService : IGenreService
         _albumsRepository = albumsRepository;
     }
 
-    public async Task<IEnumerable<Genre>> GetAllGenres() => 
-        await _genresRepository.GetAll();
-    
-    public async Task<IEnumerable<Genre>> GetAllGenresWithAlbums()
-    {
-        return (await _genresRepository.FetchAllWithAlbums()).ToList();
-    }
+    public async Task<IEnumerable<Genre>> GetAllGenres(bool withAlbums, bool withArtists) => 
+        await _genresRepository.GetAll(withAlbums, withArtists);
 
     public async Task<IEnumerable<Genre>> GetGenres(string[] genreIds) =>
         await _genresRepository.Get(genreIds.Select(Guid.Parse));

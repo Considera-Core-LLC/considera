@@ -1,6 +1,7 @@
 ﻿using Considera.Api.Core.Interfaces.MusiqueHub;
 using Considera.Api.Core.Interfaces.MusiqueHub.Services;
 using Considera.Api.Core.Models.MusiqueHub;
+using Considera.Api.Core.Models.MusiqueHub.DTO;
 
 namespace Considera.Api.Infrastructure.Services.MusiqueHub;
 
@@ -41,9 +42,10 @@ public class AlbumService : IAlbumService
     public Task<Album?> GetAlbum(string name) => 
         throw new NotImplementedException();
 
-    public async Task<IEnumerable<Album>> GetAlbumsFromGenreAlbums(IEnumerable<string> genreAlbumIds) => 
-        (await _artistAlbumsRepository.Get(genreAlbumIds.Select(Guid.Parse)))
-        .Select(x => x.Album);
+    public async Task<IEnumerable<Album>> GetAlbumsFromGenreAlbums(IEnumerable<string> genreAlbumIds) =>
+        null;  
+    //(await _artistAlbumsRepository.Get(genreAlbumIds.Select(Guid.Parse)))
+        //.Select(x => x.Album);
 
     public Task<bool> HasAlbum(string name) => 
         throw new NotImplementedException();
@@ -66,4 +68,25 @@ public class AlbumService : IAlbumService
         var genres = await _genresRepository.Get(genreIds);
         await _artistAlbumsRepository.MapGenresToAlbum(album, genres);
     }
+
+    
+    public async Task Add(AlbumDto dto)
+    {
+        var album = await Add(AlbumDto.MapTo(dto));
+
+        if (dto.ArtistIds is not null)
+        {
+            var artists = await _artistsRepository.Get(dto.ArtistIds.Select(Guid.Parse));
+            await _artistAlbumsRepository.MapArtistsToAlbum(album, artists);
+        }
+        
+        if (dto.GenreIds is not null)
+        {
+            var genres = await _genresRepository.Get(dto.GenreIds.Select(Guid.Parse));
+            await _artistAlbumsRepository.MapGenresToAlbum(album, genres);
+        }
+    }
+
+    private async Task<Album?> Add(Album album) =>
+        await _albumsRepository.Add(album);
 }

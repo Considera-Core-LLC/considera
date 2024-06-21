@@ -43,16 +43,13 @@ export class MusiqueGenresService {
     return request;
   }
 
-  public getAllGenres(): Observable<Genre[]> {
+  public getAllGenres(
+    withAlbums: boolean = false,
+    withArtists: boolean = false): Observable<Genre[]> {
     const request = this._httpMusiqueHubService
-      .get(this.GetAllGenres, new HttpParams()) as Observable<Genre[]>;
-    request.subscribe(MusiqueCache.SetGenres);
-    return request;
-  }
-
-  public getAllGenresWithAlbums(): Observable<Genre[]> {
-    const request = this._httpMusiqueHubService
-      .get(this.GetAllGenresWithAlbums, new HttpParams()) as Observable<Genre[]>;
+      .get(this.GetAllGenres, new HttpParams()
+        .append('withAlbums', withAlbums)
+        .append('withArtists', withArtists)) as Observable<Genre[]>;
     request.subscribe(MusiqueCache.SetGenres);
     return request;
   }

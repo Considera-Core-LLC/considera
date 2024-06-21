@@ -100,6 +100,7 @@ public class Program
 
     private static async Task InitializeAwsClientsAsync(string[] args)
     {
+        return;
         var ssoCreds = LoadSsoCredentials("default");
         var ssoProfileClient = new AmazonSecurityTokenServiceClient(ssoCreds);
         Console.WriteLine($"\nSSO Profile:\n {await ssoProfileClient.GetCallerIdentityArn()}");

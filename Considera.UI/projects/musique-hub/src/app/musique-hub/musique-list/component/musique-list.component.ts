@@ -4,6 +4,7 @@ import {GenreTreeModel} from "../model/genre-tree.model";
 import {MusiqueListService} from "../service/musique-list.service";
 import {NestedTreeControl} from "@angular/cdk/tree";
 import {MatTreeNestedDataSource} from "@angular/material/tree";
+import {Album} from "../../../../models/app/musique/album.model";
 
 @Component({
   selector: 'app-musique-list',
@@ -26,7 +27,7 @@ export class MusiqueListComponent {
 
   public grabGenres(): void {
     this._musicService
-      .getGenresWithAlbums()
+      .getGenres(true, true)
       .subscribe(
         x => this.genresDataSource.data = this._musicListService.makeGenresTree(x),
         e => console.log('Error: ' + e)
@@ -36,4 +37,6 @@ export class MusiqueListComponent {
   public onView(): void {
     this.grabGenres();
   }
+
+  protected readonly Album = Album;
 }

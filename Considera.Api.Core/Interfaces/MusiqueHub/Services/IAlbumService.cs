@@ -1,8 +1,9 @@
 ﻿using Considera.Api.Core.Models.MusiqueHub;
+using Considera.Api.Core.Models.MusiqueHub.DTO;
 
 namespace Considera.Api.Core.Interfaces.MusiqueHub.Services;
 
-public interface IAlbumService
+public interface IAlbumService : IService<AlbumDto>
 {
     Task<IEnumerable<Album>> GetAlbums();
     Task<IEnumerable<Album>> GetAlbums(IEnumerable<string> albumIds);

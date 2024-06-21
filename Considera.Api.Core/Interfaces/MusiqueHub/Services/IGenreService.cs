@@ -4,8 +4,7 @@ namespace Considera.Api.Core.Interfaces.MusiqueHub.Services;
 
 public interface IGenreService
 {
-    Task<IEnumerable<Genre>> GetAllGenres();
-    Task<IEnumerable<Genre>> GetAllGenresWithAlbums();
+    Task<IEnumerable<Genre>> GetAllGenres(bool withAlbums = false, bool withArtists = false);
     Task<IEnumerable<Genre>> GetGenres(string[] genreIds);
     Task<Genre?> GetGenre(string name);
     Task<Genre?> GetGenre(Guid genreId);

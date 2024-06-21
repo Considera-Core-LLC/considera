@@ -1,19 +1,17 @@
-﻿#pragma warning disable CS8618
+﻿// ReSharper disable MemberCanBePrivate.Global
+#pragma warning disable CS8618
 
 namespace Considera.Api.Core.Models.MusiqueHub.DTO;
 
-public class ArtistDto
+public class ArtistDto : IDto
 {
-    public Guid Id { get; set; }
-    public Guid? AuthorId { get; set; }
-    public Guid? VerifierId { get; set; }
-    public string Name { get; set; }
-    public string Bio { get; set; }
-    public string Origin { get; set; }
-    public DateTime FormedDate { get; set; }
-
-    public List<Genre> Genres { get; set; }
-    public List<Artist> Artists { get; set; }
+    public string? Id;
+    public string? AuthorId { get; init; }
+    public string? VerifierId { get; init; }
+    public string Name { get; init; }
+    public string Bio { get; init; }
+    public string Origin { get; init; }
+    public DateTime FormedDate { get; init; }
     
     public bool IsValid() =>
         !string.IsNullOrEmpty(Name) && 
@@ -22,9 +20,9 @@ public class ArtistDto
     public static Artist MapTo(ArtistDto artistDto) =>
         new()
         {
-            Id = artistDto.Id,
-            AuthorId = artistDto.AuthorId,
-            VerifierId = artistDto.VerifierId,
+            Id = Guid.TryParse(artistDto.Id, out var id) ? id : Guid.Empty,
+            AuthorId = Guid.TryParse(artistDto.AuthorId, out var aId) ? aId : Guid.Empty,
+            VerifierId = Guid.TryParse(artistDto.VerifierId, out var vId) ? vId : Guid.Empty,
             Name = artistDto.Name,
             Bio = artistDto.Bio,
             Origin = artistDto.Origin,
@@ -34,9 +32,9 @@ public class ArtistDto
     public static ArtistDto MapFrom(Artist artist) =>
         new()
         {
-            Id = artist.Id,
-            AuthorId = artist.AuthorId,
-            VerifierId = artist.VerifierId,
+            Id = artist.Id.ToString(),
+            AuthorId = artist.AuthorId.ToString(),
+            VerifierId = artist.VerifierId.ToString(),
             Name = artist.Name,
             Bio = artist.Bio ?? string.Empty,
             Origin = artist.Origin,

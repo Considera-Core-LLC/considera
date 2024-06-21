@@ -32,7 +32,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Considera.Api.Core\Considera.Api.Core.csproj" />
-      <ProjectReference Include="..\ConsideraDevApi.Core\ConsideraDevApi.Core.csproj" />
+      <ProjectReference Include="..\Considera.Api.Core\Considera.Api.Core.csproj" />
     </ItemGroup>
 
 </Project>

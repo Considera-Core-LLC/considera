@@ -6,6 +6,9 @@ import {Artist} from "../../../../models/app/musique/artist.model";
 import {Genre} from "../../../../models/app/musique/genre.model";
 import {Album} from "../../../../models/app/musique/album.model";
 import {MusiqueAlbumsService} from "../../../../services/app/musique/musique-albums.service";
+import {
+  MusiqueArtistsService
+} from "../../../../services/app/musique/musique-artists.service";
 
 @Component({
   selector: 'app-musique-add-album',
@@ -22,7 +25,8 @@ export class MusiqueAddAlbumComponent {
 
   public constructor(private _snack: MatSnackBar,
                      private _musicService: MusiqueService,
-                     private _musicAlbumsService: MusiqueAlbumsService) {}
+                     private _musicAlbumsService: MusiqueAlbumsService,
+                     private _musicArtistsService: MusiqueArtistsService) {}
 
   public setName(name: string): void {
     this.albumToAdd.name = name;

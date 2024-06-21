@@ -10,7 +10,10 @@
     <musique-add-artist class="body-expansion-panel" [genreOptions]="genreOptions"/>
     <app-musique-add-genre class="body-expansion-panel" [genreOptions]="genreOptions" (genreDataChanged)="loadGenres()"/>
     <app-musique-modify-genre class="body-expansion-panel" [genreOptions]="genreOptions" (genreDataChanged)="loadGenres()"/>
-    <app-musique-add-album class="body-expansion-panel" [genreOptions]="genreOptions" [artistOptions]="artistOptions"/>
+    <app-musique-add-album
+      class="body-expansion-panel"
+      [genreOptions]="genreOptions"
+      [artistOptions]="artistOptions"/>
     <app-musique-add-song [hidden]="true"  class="body-expansion-panel" [genreOptions]="genreOptions"/>
     <app-musique-add-catalog [hidden]="true" class="body-expansion-panel" [genreOptions]="genreOptions"/>
   </div>

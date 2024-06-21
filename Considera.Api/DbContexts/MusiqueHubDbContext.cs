@@ -9,6 +9,7 @@ public class MusiqueHubDbContext : DbContext
 {
     public DbSet<Album> Album { get; set; }
     public DbSet<AlbumGenre> AlbumGenre { get; set; }
+    public DbSet<AlbumArtist> AlbumArtist { get; set; }
     public DbSet<Artist> Artist { get; set; }
     public DbSet<Genre> Genre { get; set; }
     public DbSet<Song> Song { get; set; }
@@ -36,5 +37,12 @@ public class MusiqueHubDbContext : DbContext
             .UsingEntity<AlbumGenre>(
                 l => l.HasOne<Genre>().WithMany(e => e.AlbumGenres),
                 r => r.HasOne<Album>().WithMany(e => e.AlbumGenres));
+        
+        modelBuilder.Entity<Album>()
+            .HasMany(e => e.Artists)
+            .WithMany(e => e.Albums)
+            .UsingEntity<AlbumArtist>(
+                l => l.HasOne<Artist>().WithMany(e => e.AlbumArtists),
+                r => r.HasOne<Album>().WithMany(e => e.AlbumArtists));
     }
 }

@@ -6,17 +6,16 @@ using Considera.Api.Core.Interfaces;
 
 namespace Considera.Api.Core.Models.MusiqueHub;
 
-[Table("ArtistAlbum")]
-public class ArtistAlbum : IEntity
+[Table("AlbumArtist")]
+public class AlbumArtist : IEntity
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
 
-    [ForeignKey(nameof(Artist))]
-    public Guid ArtistId { get; set; }
-    public Artist Artist { get; set; }
-
     [ForeignKey(nameof(Album))]
     public Guid AlbumId { get; set; }
-    public Album Album { get; set; }
+
+    [ForeignKey(nameof(Artist))]
+    public Guid ArtistId { get; set; }
+        
 }

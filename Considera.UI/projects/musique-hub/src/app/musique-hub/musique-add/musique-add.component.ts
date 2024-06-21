@@ -27,7 +27,7 @@ export class MusiqueAddComponent {
                      private _musicAlbumsService: MusiqueAlbumsService,
                      private _musicGenresService: MusiqueGenresService) {
     this.loadGenres();
-    //this.loadArtists();
+    this.loadArtists();
     this.loadAlbums();
   }
 
@@ -56,7 +56,7 @@ export class MusiqueAddComponent {
   }
 
   public loadAlbums(): void {
-    this._musicAlbumsService.getAllAlbums().subscribe((albums: Album[]) => {
+    this._musicAlbumsService.getAlbums().subscribe((albums: Album[]) => {
       this._albumCache = albums;
     });
   }

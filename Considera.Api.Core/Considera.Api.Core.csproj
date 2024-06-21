@@ -8,7 +8,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Models\MusiqueHub\Out\" />
+      <Compile Remove="Models\MusiqueHub\Out\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Models\MusiqueHub\Out\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Models\MusiqueHub\Out\**" />
     </ItemGroup>
 
 </Project>
