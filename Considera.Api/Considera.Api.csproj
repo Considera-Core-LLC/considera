@@ -19,11 +19,15 @@
         <PackageReference Include="Castle.Windsor" Version="6.0.0" />
         <!-- This is the correct integration package for ASP.NET Core -->
         <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="4.1.0" />
+        <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
+        <PackageReference Include="GoogleMaps.LocationServices" Version="1.2.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 
         <!-- ASP.NET Core packages -->
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" /> <!-- Swagger for ASP.NET Core -->
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+        <PackageReference Include="System.Device.Location.Portable" Version="1.0.0" /> <!-- Swagger for ASP.NET Core -->
 
         <!-- Configuration and JSON handling (common for ASP.NET Core) -->
 
